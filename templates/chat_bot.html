@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chat Bot
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1 class="my-4 text-center">Chat Bot</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="question" class="form-label">You can ask the bot everything that comes to mind. For instance, you would like to ask the bot to design a diet that contains "X" amount of calories per day just to see what your diet should look like to achieve your fitness goals. </label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="question" name="question" placeholder="Ask me anything!" required>
+                                    <button type="submit" class="btn btn-primary">Ask</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {% if question %}
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <p class="fw-bold mb-0">You:</p>
+                        <p class="mb-3">{{ question }}</p>
+                        <p class="fw-bold mb-0">AI assistant:</p>
+                        <p class="mb-0">{{ response }}</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

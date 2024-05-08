@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block main %}
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th style="text-align:center;">Weight goal</th>
+                    <th style="text-align:center;">Calories per day</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align:center;">Maintain weight</td>
+                    <td style="text-align:center;">{{ '%.0f' % tdee }} Kcal/day</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center;">Mild weight gain</td>
+                    <td style="text-align:center;">{{ '%.0f' % (tdee + 250) }} Kcal/day</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center;">Mild weight loss</td>
+                    <td style="text-align:center;">{{ '%.0f' % (tdee - 250) }} Kcal/day</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center;">Weight gain</td>
+                    <td style="text-align:center;">{{ '%.0f' % (tdee + 500) }} Kcal/day</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center;">Weight loss</td>
+                    <td style="text-align:center;">{{ '%.0f' % (tdee - 500) }} Kcal/day</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card text-center mt-4">
+        <div class="card-header">
+            <strong>Caloric Recommendations</strong>
+        </div>
+        <div class="card-body">
+            <p class="card-text">By adjusting your daily calorie intake to <strong>{{'%.0f' % tdee}} Kcal</strong>, you will maintain your current weight.</p>
+            <p class="card-text">By increasing your daily calorie intake to <strong>{{ '%.0f' % (tdee + 250) }} Kcal</strong>, you can expect to gain around 0.25kg per week.</p>
+            <p class="card-text">By decreasing your daily calorie intake to <strong>{{ '%.0f' % (tdee - 250) }} Kcal</strong>, you can expect to lose around 0.25kg per week.</p>
+            <p class="card-text">By increasing your daily calorie intake to <strong>{{ '%.0f' % (tdee + 500) }} Kcal</strong>, you can expect to gain around 0.5kg per week.</p>
+            <p class="card-text">By decreasing your daily calorie intake to <strong>{{ '%.0f' % (tdee - 500) }} Kcal</strong>, you can expect to lose around 0.5kg per week.</p>
+        </div>
+        <div class="card-footer text-muted">
+            <small>Disclaimer: While this calculator can provide a rough estimate of daily calorie needs, it does have limitations. It does not take into account individual differences in body composition, genetics, and hormone levels, all of which can influence an individual's metabolism and calorie needs. Additionally, it assumes that all individuals within a gender and age group have similar physical activity levels, which may not always be the case. Therefore, it is important to use the Harris-Benedict equation as a starting point and adjust calorie intake based on individual needs and goals. </small>
+        </div>
+    </div>
+
+{% endblock %}
