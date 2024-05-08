@@ -1,5 +1,4 @@
 # CS50 FITNESS
-#### Video Demo:  <https://www.youtube.com/watch?v=htUInZ9OqGc&ab_channel=CarlosLaborda>
 #### Description:
 
 # Calorie Calculator Flask Application
